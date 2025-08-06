@@ -3,15 +3,17 @@ id: 67cd82d3-7e55-4571-ab77-9486fe017f94
 management:
   docChecksum: 03e3387365ae18c7ce07d32543a62956
   docVersion: 1.0.0
-  speakeasyVersion: 1.598.0
-  generationVersion: 2.674.1
-  releaseVersion: 0.0.1
-  configChecksum: 5e48dd3d388fc732996426bda51fab23
+  speakeasyVersion: 1.598.2
+  generationVersion: 2.674.3
+  releaseVersion: 5.2.0-alpha.32
+  configChecksum: 5140dd359847a95af74d837926bcc023
+  repoURL: https://github.com/kanwardeep007/meepy-moopy.git
+  installationURL: https://github.com/kanwardeep007/meepy-moopy
 features:
   typescript:
     additionalDependencies: 0.1.0
     constsAndDefaults: 0.1.12
-    core: 3.21.19
+    core: 3.21.20
     defaultEnabledRetries: 0.1.0
     devContainers: 2.90.0
     enumUnions: 0.1.0
