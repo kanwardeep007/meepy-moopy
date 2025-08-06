@@ -25,7 +25,7 @@ generation:
     generateNewTests: true
     skipResponseBodyAssertions: false
 typescript:
-  version: 0.0.1
+  version: 5.2.0-alpha.32
   additionalDependencies:
     dependencies: {}
     devDependencies: {}

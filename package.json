@@ -1,6 +1,6 @@
 {
   "name": "meepy-moopy",
-  "version": "0.0.1",
+  "version": "5.2.0-alpha.32",
   "author": "Speakeasy",
   "type": "module",
   "tshy": {
@@ -19,6 +19,10 @@
     }
   },
   "sideEffects": false,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kanwardeep007/meepy-moopy.git"
+  },
   "scripts": {
     "lint": "eslint --cache --max-warnings=0 src",
     "build": "tshy",
@@ -31,7 +35,7 @@
     "globals": "^15.14.0",
     "tshy": "^2.0.0",
     "typescript": "~5.8.3",
-    "typescript-eslint": "^8.22.0"
+    "typescript-eslint": "^8.26.0"
   },
   "dependencies": {
     "zod": "^3.20.0"

@@ -61,25 +61,25 @@ The SDK can be installed with either [npm](https://www.npmjs.com/), [pnpm](https
 ### NPM
 
 ```bash
-npm add <UNSET>
+npm add https://github.com/kanwardeep007/meepy-moopy
 ```
 
 ### PNPM
 
 ```bash
-pnpm add <UNSET>
+pnpm add https://github.com/kanwardeep007/meepy-moopy
 ```
 
 ### Bun
 
 ```bash
-bun add <UNSET>
+bun add https://github.com/kanwardeep007/meepy-moopy
 ```
 
 ### Yarn
 
 ```bash
-yarn add <UNSET> zod
+yarn add https://github.com/kanwardeep007/meepy-moopy zod
 
 # Note that Yarn does not install peer dependencies automatically. You will need
 # to install zod as shown above.
