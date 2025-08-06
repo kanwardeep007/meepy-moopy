@@ -1,0 +1,2 @@
+{"key":"openapi_change_summary","priority":5,"bump_type":"none","new_version":"","must_generate":true,"pr_report":"","commit_report":""}
+{"key":"GENERATE_typescript","priority":1,"bump_type":"custom","new_version":"0.0.1","must_generate":false,"pr_report":"","commit_report":""}
