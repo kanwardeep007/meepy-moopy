@@ -5,8 +5,8 @@ management:
   docVersion: 1.0.0
   speakeasyVersion: 1.598.2
   generationVersion: 2.674.3
-  releaseVersion: 5.2.0-alpha.32
-  configChecksum: 5140dd359847a95af74d837926bcc023
+  releaseVersion: 5.2.0-alpha.33
+  configChecksum: 42053624e1f109220bb863cfc50cb8f4
   repoURL: https://github.com/kanwardeep007/meepy-moopy.git
   installationURL: https://github.com/kanwardeep007/meepy-moopy
 features:
