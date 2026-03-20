@@ -7,5 +7,6 @@ export * from "./apierrornotfound.js";
 export * from "./apierrorunauthorized.js";
 export * from "./httpclienterrors.js";
 export * from "./petstoredefaulterror.js";
+export * from "./petstoreerror.js";
 export * from "./responsevalidationerror.js";
 export * from "./sdkvalidationerror.js";

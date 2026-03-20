@@ -8,7 +8,7 @@ dotenv.config();
  * Example usage of the meepy-moopy SDK
  *
  * To run this example from the examples directory:
- * npm run build && npx tsx petUpdatePet.ts
+ * npm run build && npx tsx petUpdatePet.example.ts
  */
 
 import { Petstore } from "meepy-moopy";
@@ -18,7 +18,7 @@ const petstore = new Petstore({
 });
 
 async function main() {
-  const result = await petstore.updatePet({
+  const result = await petstore.pet.updatePet({
     id: 10,
     name: "doggie",
     category: {
