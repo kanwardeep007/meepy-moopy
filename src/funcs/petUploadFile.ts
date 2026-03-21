@@ -81,7 +81,9 @@ async function $do(
     return [parsed, { status: "invalid" }];
   }
   const payload = parsed.value;
-  const body = payload.RequestBody;
+  const body = payload.RequestBody instanceof Uint8Array
+    ? new Uint8Array(payload.RequestBody).buffer
+    : payload.RequestBody;
 
   const pathParams = {
     petId: encodeSimple("petId", payload.petId, {
@@ -89,7 +91,6 @@ async function $do(
       charEncoding: "percent",
     }),
   };
-
   const path = pathToFunc("/pet/{petId}/uploadImage")(pathParams);
 
   const query = encodeFormQuery({
@@ -109,7 +110,7 @@ async function $do(
     options: client._options,
     baseURL: options?.serverURL ?? client._baseURL ?? "",
     operationID: "uploadFile",
-    oAuth2Scopes: [],
+    oAuth2Scopes: null,
 
     resolvedSecurity: requestSecurity,
 

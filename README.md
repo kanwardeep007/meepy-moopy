@@ -79,10 +79,7 @@ bun add https://github.com/kanwardeep007/meepy-moopy
 ### Yarn
 
 ```bash
-yarn add https://github.com/kanwardeep007/meepy-moopy zod
-
-# Note that Yarn does not install peer dependencies automatically. You will need
-# to install zod as shown above.
+yarn add https://github.com/kanwardeep007/meepy-moopy
 ```
 
 > [!NOTE]
@@ -174,7 +171,7 @@ run();
 <details open>
 <summary>Available methods</summary>
 
-### [pet](docs/sdks/pet/README.md)
+### [Pet](docs/sdks/pet/README.md)
 
 * [updatePet](docs/sdks/pet/README.md#updatepet) - Update an existing pet
 * [addPet](docs/sdks/pet/README.md#addpet) - Add a new pet to the store
@@ -184,15 +181,14 @@ run();
 * [deletePet](docs/sdks/pet/README.md#deletepet) - Deletes a pet
 * [uploadFile](docs/sdks/pet/README.md#uploadfile) - uploads an image
 
-
-### [store](docs/sdks/store/README.md)
+### [Store](docs/sdks/store/README.md)
 
 * [getInventory](docs/sdks/store/README.md#getinventory) - Returns pet inventories by status
 * [placeOrder](docs/sdks/store/README.md#placeorder) - Place an order for a pet
 * [getOrderById](docs/sdks/store/README.md#getorderbyid) - Find purchase order by ID
 * [deleteOrder](docs/sdks/store/README.md#deleteorder) - Delete purchase order by ID
 
-### [user](docs/sdks/user/README.md)
+### [User](docs/sdks/user/README.md)
 
 * [createUser](docs/sdks/user/README.md#createuser) - Create user
 * [createUsersWithListInput](docs/sdks/user/README.md#createuserswithlistinput) - Creates list of users with given input array
@@ -462,6 +458,7 @@ The default server `https://{environment}.petstore.io` contains variables and is
 import { Petstore } from "meepy-moopy";
 
 const petstore = new Petstore({
+  serverIdx: 0,
   environment: "dev",
   apiKey: process.env["PETSTORE_API_KEY"] ?? "",
 });
@@ -531,19 +528,23 @@ The `HTTPClient` constructor takes an optional `fetcher` argument that can be
 used to integrate a third-party HTTP client or when writing tests to mock out
 the HTTP client and feed in fixtures.
 
-The following example shows how to use the `"beforeRequest"` hook to to add a
-custom header and a timeout to requests and how to use the `"requestError"` hook
-to log errors:
+The following example shows how to:
+- route requests through a proxy server using [undici](https://www.npmjs.com/package/undici)'s ProxyAgent
+- use the `"beforeRequest"` hook to add a custom header and a timeout to requests
+- use the `"requestError"` hook to log errors
 
 ```typescript
 import { Petstore } from "meepy-moopy";
+import { ProxyAgent } from "undici";
 import { HTTPClient } from "meepy-moopy/lib/http";
 
+const dispatcher = new ProxyAgent("http://proxy.example.com:8080");
+
 const httpClient = new HTTPClient({
-  // fetcher takes a function that has the same signature as native `fetch`.
-  fetcher: (request) => {
-    return fetch(request);
-  }
+  // 'fetcher' takes a function that has the same signature as native 'fetch'.
+  fetcher: (input, init) =>
+    // 'dispatcher' is specific to undici and not part of the standard Fetch API.
+    fetch(input, { ...init, dispatcher } as RequestInit),
 });
 
 httpClient.addHook("beforeRequest", (request) => {
@@ -563,7 +564,7 @@ httpClient.addHook("requestError", (error, request) => {
   console.groupEnd();
 });
 
-const sdk = new Petstore({ httpClient });
+const sdk = new Petstore({ httpClient: httpClient });
 ```
 <!-- End Custom HTTP Client [http-client] -->
 

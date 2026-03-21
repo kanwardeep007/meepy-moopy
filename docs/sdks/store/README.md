@@ -1,5 +1,4 @@
 # Store
-(*store*)
 
 ## Overview
 
